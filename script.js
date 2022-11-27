@@ -12,6 +12,8 @@ const divide = (a,b) => {
 }
 
 const operate = (op,a,b) => {
+    a=parseInt(a);
+    b=parseInt(b);
     if(op=="+"){
         return add(a,b);
     }
@@ -28,13 +30,21 @@ const operate = (op,a,b) => {
 
 let display = document.querySelector("input");
 let string = "";
-let num1,num2,op;
+let n = [];
 Array.from(document.getElementsByClassName("buttons")).forEach((button)=>{
     button.addEventListener('click', (e)=>{
         string = string + e.target.innerText;
         display.value = string;
-    })
+    
+
+   
+        n.push(e.target.innerText.toString());
+        if(n.length==3){
+            string = operate(n[1],n[0],n[2])
+            display.value = string;
+            n = [];
+            n.push(string);
+        }
+    
 })
-
-
-
+})
