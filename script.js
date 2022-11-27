@@ -25,3 +25,16 @@ const operate = (op,a,b) => {
         return divide(a,b);
     }
 }
+
+let display = document.querySelector("input");
+let string = "";
+let num1,num2,op;
+Array.from(document.getElementsByClassName("buttons")).forEach((button)=>{
+    button.addEventListener('click', (e)=>{
+        string = string + e.target.innerText;
+        display.value = string;
+    })
+})
+
+
+
